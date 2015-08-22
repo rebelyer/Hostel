@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -15,3 +16,23 @@
  *= require_tree .
  *= require_self
  */
+
+.jumbotron 
+  position: relative
+  background: #000 url('welcome/jumbotron_bg.jpg') center center
+  width: 100%
+  height: 800px
+  background-size: cover
+  overflow: hidden
+  border: solid black 2px
+  
+  h1
+    color: white
+
+.footer
+  margin-top: 150px
+  padding-top: 50px
+  background-color: darkgrey
+
+span.glyphicon 
+  font-size: 3em
