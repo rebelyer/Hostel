@@ -1,0 +1,10 @@
+<div class='container'>
+   <h1>Here are our rooms:</h1>
+   <% @rooms.each do |room| %>
+      <div>
+         <p><%= room.room_number %></p>
+      </div>
+   <% end %>
+
+   <%= link_to 'Add new room', new_room_path %>
+</div>

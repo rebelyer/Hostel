@@ -1,0 +1,29 @@
+<%= form_for @room do |f| %>
+   <div class='room_form'>
+      <div class='container'>
+         <p>
+            <%= f.label :room_number %><br>
+            <%= f.text_field :room_number %>
+         </p>
+
+         <p>
+            <%= f.label :beds_number %><br>
+            <%= f.text_field :beds_number %>
+         </p>
+
+         <p>
+            <%= f.label :price_per_adult %><br>
+            <%= f.text_field :price_per_adult %>
+         </p>
+
+         <p>
+            <%= f.label :price_per_child %><br>
+            <%= f.text_field :price_per_child %>
+         </p>
+
+         <p>
+            <%= f.submit %>
+         </p>
+      </div>
+   <div>
+<% end %>
