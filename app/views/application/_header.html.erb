@@ -10,10 +10,10 @@
     </div>
     <div class='collapse navbar-collapse' id='myNavbar'> 
       <ul class='nav navbar-nav'>
-        <li class='active'><%= link_to 'Home', '' %></li>
+        <li class='active'><%= link_to 'Home', controller: 'welcome' %></li>
         <li><%= link_to 'Rooms', controller: 'rooms' %></li>
-        <li><a href='#'>Page 2</a></li>
-        <li><a href='#'>Page 3</a></li>
+        <li><%= link_to 'Clients', controller: 'clients' %></li>
+        <li><%= link_to 'Reservation', controller: 'reservations' %></li>
       </ul>
 
       <ul class='nav navbar-nav navbar-right'>

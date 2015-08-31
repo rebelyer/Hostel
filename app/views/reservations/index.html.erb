@@ -1,0 +1,13 @@
+<div class='container'>
+  <%= link_to 'new reservation', new_reservation_path %>
+  <h1> History of our reservations:</h1>
+  <% @reservations.each do |reservation| %>
+    <div>
+      <p>
+        <%= reservation.id %>
+        <%= reservation.client.name %>
+        <%= reservation.client.surname %>
+      </p>
+    </div>
+  <% end %>
+</div>
