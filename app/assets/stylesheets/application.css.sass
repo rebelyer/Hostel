@@ -13,28 +13,29 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap-datepicker3
  *= require_tree .
  *= require_self
  */
 
-.jumbotron 
-  position: relative
-  background: #000 url('welcome/jumbotron_bg.jpg') center center
-  width: 100%
-  height: 800px
-  background-size: cover
-  overflow: hidden
+.new
+   color: grey
 
-  .title
-    border: solid black 2px
+.old
+   color: grey
 
-  h1
-    color: white
+.range
+   background-color: lightgrey
 
-.footer
-  margin-top: 150px
-  padding-top: 50px
-  background-color: darkgrey
+.selected
+   background-color: grey
+   border-radius: 4px
 
-span.glyphicon 
-  font-size: 3em
+td
+   text-align: center
+   cursor: pointer
+
+td:hover
+   color: white
+   background-color: blue
+   border-radius: 4px

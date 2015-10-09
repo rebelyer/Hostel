@@ -11,30 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150824141945) do
-
-  create_table "clients", force: :cascade do |t|
-    t.string   "name"
-    t.string   "surname"
-    t.integer  "phone_number"
-    t.string   "email_adress"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
+ActiveRecord::Schema.define(version: 20151006113850) do
 
   create_table "reservations", force: :cascade do |t|
-    t.integer  "client_id"
-    t.integer  "room_id"
+    t.string   "first_name"
+    t.string   "surname"
     t.integer  "adults_number"
     t.integer  "children_number"
     t.date     "beginning"
     t.date     "end"
-    t.decimal  "discount",        precision: 2, scale: 2
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.decimal  "discount",                   precision: 2, scale: 2
+    t.integer  "room_id"
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.string   "email_adress"
+    t.integer  "phone_number",    limit: 11
   end
 
-  add_index "reservations", ["client_id"], name: "index_reservations_on_client_id"
   add_index "reservations", ["room_id"], name: "index_reservations_on_room_id"
 
   create_table "rooms", force: :cascade do |t|

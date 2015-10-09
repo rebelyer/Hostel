@@ -1,6 +1,5 @@
 class Room < ActiveRecord::Base
-  has_many :reservations, dependent: :destroy
-  has_many :clients, through: :reservations
+   has_many :reservations, dependent: :destroy
 
-  validates :room_number, :beds_number, :price_per_adult, :price_per_child, presence: true
+   accepts_nested_attributes_for :reservations
 end

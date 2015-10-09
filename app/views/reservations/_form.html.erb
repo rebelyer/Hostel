@@ -1,0 +1,22 @@
+<%= form_for(@reservation) do |f| %>
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+      <% @reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<%= render "#{@reservation.current_step}_step", f: f %>
+
+  <div class="actions">
+   <%= f.submit 'Back', name: 'back_button' unless @reservation.first_step? %>
+   <%= f.submit 'Confirm' if @reservation.last_step? %>
+   <%= f.submit 'Continue' unless @reservation.last_step? %>
+  </div>
+<% end %>

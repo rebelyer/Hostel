@@ -1,44 +1,5 @@
-<%= form_for @reservation do |f| %>
-  <div class='reservation_form'>
-    <div class='container'>
-      <p>
-        <%= f.label :client_id %><br>
-        <%= f.text_field :client_id %>
-      </p>
+<div class='container'>
+   <h1>New Reservation</h1>
+   <%= render 'form' %>
+</div>
 
-      <p>
-        <%= f.label :room_id %><br>
-        <%= f.text_field :room_id %>
-      </p>
-
-      <p>
-        <%= f.label :adults_number %><br>
-        <%= f.text_field :adults_number %>
-      </p>
-
-      <p>
-        <%= f.label :children_number %><br>
-        <%= f.text_field :children_number %>
-      </p>
-
-      <p>
-        <%= f.label :beginning %><br>
-        <%= f.text_field :beginning %>
-      </p>
-
-      <p>
-        <%= f.label :end %><br>
-        <%= f.text_field :end %>
-      </p>
-
-      <p>
-        <%= f.label :discount %><br>
-        <%= f.text_field :discount %>
-      </p>
-
-      <p>
-        <%= f.submit %>
-      </p>
-    </div>
-  </div>
-<% end %>

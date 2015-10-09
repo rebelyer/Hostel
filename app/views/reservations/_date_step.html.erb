@@ -1,0 +1,26 @@
+<div class="field">
+   <%= f.label :adults_number %><br>
+   <%= f.number_field :adults_number %>
+</div>
+<div class="field">
+   <%= f.label :children_number %><br>
+   <%= f.number_field :children_number %>
+</div>
+
+<div class="field">
+   <div class="input-daterange" id="datepicker">
+   <p>
+      <%= f.label :dates %><br>
+      <%= f.text_field :beginning %>
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+      <%= f.text_field :end %>
+   </p>
+   </div>
+</div>
+
+   <% # f.label :end %>
+   <% # f.date_select :end %>
+
+<%= javascript_tag do %>
+   var rooms_class = '<%= @rooms.class %>'
+<% end %>

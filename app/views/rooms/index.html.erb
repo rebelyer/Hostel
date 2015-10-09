@@ -1,10 +1,33 @@
-<div class='container'>
-   <h1>Here are our rooms:</h1>
-   <% @rooms.each do |room| %>
-      <div>
-         <p><%= room.room_number %></p>
-      </div>
-   <% end %>
+<p id="notice"><%= notice %></p>
 
-   <%= link_to 'Add new room', new_room_path %>
-</div>
+<h1>Listing Rooms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Room number</th>
+      <th>Beds number</th>
+      <th>Price per adult</th>
+      <th>Price per child</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td><%= room.room_number %></td>
+        <td><%= room.beds_number %></td>
+        <td><%= room.price_per_adult %></td>
+        <td><%= room.price_per_child %></td>
+        <td><%= link_to 'Show', room %></td>
+        <td><%= link_to 'Edit', edit_room_path(room) %></td>
+        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Room', new_room_path %>

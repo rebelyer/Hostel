@@ -14,4 +14,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.pl
 //= require_tree .
+
+var ready;
+var controller_name;
+
+ready = function() {
+   controller_name = window.location.pathname.split("/")[1];
+   $("."+controller_name).addClass('active');
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

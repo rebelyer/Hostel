@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Room number:</strong>
+  <%= @room.room_number %>
+</p>
+
+<p>
+  <strong>Beds number:</strong>
+  <%= @room.beds_number %>
+</p>
+
+<p>
+  <strong>Price per adult:</strong>
+  <%= @room.price_per_adult %>
+</p>
+
+<p>
+  <strong>Price per child:</strong>
+  <%= @room.price_per_child %>
+</p>
+
+<%= link_to 'Edit', edit_room_path(@room) %> |
+<%= link_to 'Back', rooms_path %>

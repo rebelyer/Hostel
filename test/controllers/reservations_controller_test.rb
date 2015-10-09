@@ -1,7 +1,49 @@
 require 'test_helper'
 
 class ReservationsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @reservation = reservations(:one)
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:reservations)
+  end
+
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
+
+  test "should create reservation" do
+    assert_difference('Reservation.count') do
+      post :create, reservation: { adults_number: @reservation.adults_number, beginning: @reservation.beginning, children_number: @reservation.children_number, discount: @reservation.discount, end: @reservation.end, first_name: @reservation.first_name, room_id: @reservation.room_id, surname: @reservation.surname }
+    end
+
+    assert_redirected_to reservation_path(assigns(:reservation))
+  end
+
+  test "should show reservation" do
+    get :show, id: @reservation
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get :edit, id: @reservation
+    assert_response :success
+  end
+
+  test "should update reservation" do
+    patch :update, id: @reservation, reservation: { adults_number: @reservation.adults_number, beginning: @reservation.beginning, children_number: @reservation.children_number, discount: @reservation.discount, end: @reservation.end, first_name: @reservation.first_name, room_id: @reservation.room_id, surname: @reservation.surname }
+    assert_redirected_to reservation_path(assigns(:reservation))
+  end
+
+  test "should destroy reservation" do
+    assert_difference('Reservation.count', -1) do
+      delete :destroy, id: @reservation
+    end
+
+    assert_redirected_to reservations_path
+  end
 end
