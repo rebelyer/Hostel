@@ -1,18 +1,31 @@
 class DateValidator < ActiveModel::Validator
    def validate reservation
-      @beg_date, @end_date = reservation.beginning, reservation.end
-      @beg_date ||= Date.today
-      @end_date ||= Date.today.next
+      @beg, @end = reservation.beginning, reservation.end
 
-      @num_people = reservation.adults_number.to_i + reservation.children_number.to_i
+      num_people = reservation.adults_number.to_i + reservation.children_number.to_i
 
       @rooms = Room.all
-      reservation.errors[:base] << "There is no free place in our Hostel at these dates." if free_places(@beg_date, @end_date, @num_people) 
+      reservation.errors[:base] << "There is no free place in our Hostel at these dates." if free_places(@beg, @end, num_people)
    end
 
    def free_places beg_date, end_date, num_people
+      Reservation.free_rooms(beg_date, end_date, num_people).empty?
+   end
+end
 
-      return Reservation.free_rooms(beg_date, end_date, num_people).empty?
+class PeopleNumValidator < ActiveModel::Validator
+   def validate reservation
+      adults_num = reservation.adults_number
+      children_num = reservation.children_number
+
+      reservation.errors[:base] << "Incorrect number of people." unless correct_number_of_people adults_num, children_num
+   end
+
+   def correct_number_of_people adults_num, children_num
+      adults = adults_num.is_a?(Integer) && adults_num > 0
+      children = (children_num.is_a?(Integer) || children_num.is_a?(NilClass)) && children_num.to_i >= 0
+
+      adults && children
    end
 end
 
@@ -20,9 +33,11 @@ class Reservation < ActiveRecord::Base
    belongs_to :room
    attr_writer :current_step
 
-   validates_presence_of :adults_number, :beginning, :end, if: lambda{|r| r.current_step == 'date'}
-   validates_presence_of :first_name, :surname, :phone_number, :email_adress, if: lambda{|r| r.current_step == 'personal'}
-   validates_with DateValidator
+   validates_presence_of :adults_number, :beginning, :end, if: :date_step?
+   validates_presence_of :first_name, :surname, :phone_number, :email_adress, if: :personal_step?
+   validates_presence_of :room_id, if: :room_step?
+   validates_with DateValidator, if: :date_step?
+   validates_with PeopleNumValidator, if: :date_step?
 
    def steps
       %w[date personal room hidden]
@@ -49,8 +64,11 @@ class Reservation < ActiveRecord::Base
    end
 
    # Array of rooms in which there are free beds
-   # When there is no free beds It returns []
+   # When there is no free beds or even one of 
+   # arguments is nil - It returns []
    def self.free_rooms beg_date, end_date, num_people
+      return [] if [beg_date, end_date, num_people].any?{|x| x == nil}
+
       Room.all.map do |room|
          room if (beg_date..end_date).all? do |date|
             rooms_beds_occupied = room.reservations.map {|res| res.adults_number + res.children_number.to_i if date > res.beginning && date < res.end}.compact.reduce(:+).to_i
@@ -58,6 +76,19 @@ class Reservation < ActiveRecord::Base
             room.beds_number - rooms_beds_occupied >= num_people
          end
       end.compact
+   end
+
+private
+   def personal_step?
+      current_step == 'personal'
+   end
+
+   def date_step?
+      current_step == 'date'
+   end
+
+   def room_step?
+      current_step == 'room'
    end
       
 end

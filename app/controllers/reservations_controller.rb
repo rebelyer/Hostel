@@ -32,7 +32,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(session[:reservation_params])
     @reservation.current_step = session[:reservation_step]
     
-    @rooms = Reservation.free_rooms(@reservation.beginning, @reservation.end, @reservation.adults_number + @reservation.children_number.to_i)
+    @rooms = Reservation.free_rooms(@reservation.beginning, @reservation.end, @reservation.adults_number.to_i + @reservation.children_number.to_i)
     
     if @reservation.valid?
       if params[:back_button]
