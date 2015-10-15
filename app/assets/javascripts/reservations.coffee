@@ -5,7 +5,7 @@
 ready = ->
    $('.input-daterange').datepicker(
       weekStart: 1
-      format: "dd/mm/yyyy"
+      format: "yyyy-mm-dd"
    )
    $('input:hidden[name="reservation[discount]"]').val(0.0)
 
