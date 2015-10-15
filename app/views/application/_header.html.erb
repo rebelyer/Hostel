@@ -13,6 +13,11 @@
             <li class='rooms'><%= link_to 'Rooms', controller: :rooms %></li>
             <li class='reservations'><%= link_to 'Reservations', controller: :reservations %></li>
             <li class='contact'><%= link_to 'Contact us', controller: :contact %></li>
+           <% if current_user %>
+            <li class='logout'><%= link_to 'Logout', :logout, method: :post %></li>
+           <% else %>
+            <li class='user'><%= link_to 'Login', :login %></li>
+           <% end %>
          </ul>
       </div>
    </div>
