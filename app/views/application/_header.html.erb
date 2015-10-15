@@ -10,9 +10,9 @@
       </div>
       <div class='collapse navbar-collapse' id='myNavbar'>
          <ul class='nav navbar-nav'>
-            <li class='rooms'><%= link_to 'Rooms', controller: :rooms %></li>
-            <li class='reservations'><%= link_to 'Reservations', controller: :reservations %></li>
-            <li class='contact'><%= link_to 'Contact us', controller: :contact %></li>
+            <li class='rooms'><%= link_to 'Rooms', rooms_path %></li>
+            <li class='reservations'><%= link_to 'Reservations', new_reservation_path %></li>
+            <li class='contact'><%= link_to 'Contact us', contact_path %></li>
            <% if current_user %>
             <li class='logout'><%= link_to 'Logout', :logout, method: :post %></li>
            <% else %>
