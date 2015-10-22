@@ -9,3 +9,4 @@ To do list:
    - add payment step (transferuj gem)
    - add AJAX for datepicker
    - work with jumbotron to make it more dynamic
+   - work with security :)

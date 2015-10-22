@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
   end
 
   # POST /reservations
-  # POST /reservations.json
+  #
   def create
     session[:reservation_params].deep_merge!(params[:reservation]) if params[:reservation]
     @reservation = Reservation.new(session[:reservation_params])
@@ -33,25 +33,9 @@ class ReservationsController < ApplicationController
        render :new
     else
       session[:reservation_params] = session[:reservation_step] = nil
-     # respond_to do |format|
-      #   format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-       #  format.json { render :show, stats: :created, location: @reservation }
-      #end
        redirect_to :root
     end
-
     
-#    if params[:confirmation_button] then
-#       respond_to do |format|
-#         if @reservation.save
-#           format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-#           format.json { render :show, status: :created, location: @reservation }
-#         else
-#           format.html { render :new }
-#           format.json { render json: @reservation.errors, status: :unprocessable_entity }
-#         end
-#       end
-#    end
   end
 
   private

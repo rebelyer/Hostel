@@ -1,5 +1,8 @@
 @import "bootstrap-sprockets"
+@import "bootstrap-datepicker3"
 @import "bootstrap"
+@import "reservations"
+@import "welcome"
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -13,37 +16,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap-datepicker3
- *= require_tree .
- *= require_self
  */
 
-.new
-   color: grey
-
-.old
-   color: grey
-
-.range
-   background-color: lightgrey
-
-.selected
-   background-color: grey
-   border-radius: 4px
-
-td
-   text-align: center
-   cursor: pointer
-
-td:hover
-   color: white
-   background-color: blue
-   border-radius: 4px
-
-.col-md-4
-   text-align: center
-
-   span.glyphicon
-      font-size: 3em
 
 

@@ -23,7 +23,7 @@
         <td><%= link_to 'Show', room %></td>
         <% if current_user %>
          <td><%= link_to 'Edit', edit_admin_room_path(room) %></td>
-         <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <td><%= link_to 'Destroy', admin_room_path(room), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
