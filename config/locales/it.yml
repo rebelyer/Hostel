@@ -1,0 +1,16 @@
+it:
+   nav:
+      rooms: "Case"
+      reservations: "Reservationo"
+      contact: "Contacto"
+      language: "Linguo"
+   welcome:
+      tours:
+         title: "Mi chiamo"
+         p: "Ciao mi chiamo Adalberto signore :)"
+      sightseening:
+         title: "Pronto signore"
+         p: "Noi siamo verificatto per scuola e per chiesa. Attenzione!"
+      nightlife:
+         title: "Luna via"
+         p: "Sono strocatto loro sapono voi lificatto Hostello."

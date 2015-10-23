@@ -5,12 +5,12 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-         = link_to 'Hostel Cheapsy', '/', class: 'navbar-brand'
+         = link_to 'Hostel Centrum', '/', class: 'navbar-brand'
       .collapse.navbar-collapse#myNavbar
          %ul.nav.navbar-nav
-            %li.rooms= link_to 'Rooms', rooms_path
-            %li.reservations= link_to 'Reservations', new_reservation_path
-            %li.contact= link_to 'Contact us', contact_path
+            %li.rooms= link_to "#{t 'nav.rooms'}", rooms_path 
+            %li.reservations= link_to "#{t 'nav.reservations'}", new_reservation_path
+            %li.contact= link_to "#{t 'nav.contact'}", contact_path
             - if current_user
                %li.logout= link_to 'Logout', :logout, method: :post
             - else
@@ -18,15 +18,10 @@
          %ul.nav.navbar-nav.navbar-right
             %li.dropdown
                %a.dropdown-toggle{'href'=>'#', 'data-toggle'=>'dropdown', 'role'=>'button', 'aria-haspopup'=>'true', 'aria-expanded'=>'false'} 
-                  Language
+                  = t 'nav.language'
                   %span.caret
                %ul.dropdown-menu
-                  %li
-                     %a{'href'=>'#'} FR
-                  %li
-                     %a{'href'=>'#'} IT
-                  %li
-                     %a{'href'=>'#'} 
-                        PL
-                        %span.glyphicon.glyphicon-flag{'aria-hidden'=>'true'}
+                  %li= link_to 'PL', language_path(:pl)
+                  %li= link_to 'EN', language_path(:en)
+                  %li= link_to 'IT', language_path(:it)
 

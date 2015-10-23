@@ -1,0 +1,16 @@
+pl:
+   nav:
+      rooms: "Pokoje"
+      reservations: "Rezerwacja"
+      contact: "Kontakt"
+      language: "Język"
+   welcome:
+      tours: 
+         title: "Zorganizowane wycieczki"
+         p: "Oferujemy wiele zorganizowanych wycieczek (w tym do Oświęcimia, Zakopanego, Jasnej-Góry)."
+      sightseening: 
+         title: "Zwiedzanie"
+         p: "W Krakowie naprawdę warto obejrzeć wiele rzeczy. Kliknij tutaj, aby obejrzeć naszą listę najciekawszych atrakcji."
+      nightlife: 
+         title: "Życie nocne"
+         p: "Najlepsze kluby muzyczne i puby w Krakowie, z nami nie będziesz zawiedziony."

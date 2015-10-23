@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'language/:ln' => 'languages#change', as: :language
+
   root 'welcome#index'
 
   get 'welcome/index'
