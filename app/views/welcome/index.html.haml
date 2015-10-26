@@ -1,11 +1,37 @@
 %p#notice= notice
 
-.jumbotron
-   .container
-      .title
-         %h1 Hostel Centrum
+#carousel-example-generic.carousel.slide{"data-ride"=>"carousel"}
+   %ol.carousel-indicators
+      %li.active{"data-target" => "#carousel-example-generic", "data-slide-to" => "0"}
+      %li{"data-target" => "#carousel-example-generic", "data-slide-to" => "1"}
+      %li{"data-target" => "#carousel-example-generic", "data-slide-to" => "2"}
+   .carousel-inner{ "role" => "listbox" }
+      .item.active
+         = image_tag 'welcome/carousel_01.jpg', class: 'carousel_image'
+         .carousel-caption
+            %h1 Example headline.
+            %p.lead Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+            = link_to 'Sign up today', '#', class: 'btn btn-large btn-primary'
+      .item
+         = image_tag 'welcome/carousel_02.jpg', class: 'carousel_image'
+         .carousel-caption
+            %h1 Another example headline.
+            %p.lead Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+            = link_to 'Learn more', '#', class: 'btn btn-large btn-primary'
+      .item
+         = image_tag 'welcome/carousel_03.jpg', class: 'carousel_image'
+         .carousel-caption
+            %h1 One more for good measure.
+            %p.lead Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+            = link_to 'Browse gallery', '#', class: 'btn btn-large btn-primary'
+   = link_to '#carousel-example-generic', class: 'left carousel-control', role: 'button', data: {slide: 'prev'} do
+      %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+      %span.sr-only Previous
+   = link_to '#carousel-example-generic', class: 'right carousel-control', role: 'button', data: {slide: 'next'} do
+      %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+      %span.sr-only Next	 
 
-.container
+.container#sections
    .row
       .col-md-4
          %span.glyphicon.glyphicon-road{"aria-hidden" => true}
@@ -17,6 +43,5 @@
          %p= t 'welcome.sightseening.p'
       .col-md-4
          %span.glyphicon.glyphicon-glass{"aria-hidden" => true}
-         %h3= t 'welcome.nightlife.title' 
+         %h3= t 'welcome.nightlife.title'
          %p= t 'welcome.nightlife.p'
-

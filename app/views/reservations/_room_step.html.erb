@@ -1,6 +1,0 @@
-<% @rooms.each do |room| %>
-   <div class='field'>
-      <%= f.label "room #{room.room_number}" %>
-      <%= f.radio_button :room_id, "#{room.id}" %>
-   </div>
-<% end %>

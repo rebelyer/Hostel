@@ -18,10 +18,10 @@
          %ul.nav.navbar-nav.navbar-right
             %li.dropdown
                %a.dropdown-toggle{'href'=>'#', 'data-toggle'=>'dropdown', 'role'=>'button', 'aria-haspopup'=>'true', 'aria-expanded'=>'false'} 
-                  = t 'nav.language'
+                  = image_tag('flags/blank.gif', id: 'curent-language', class: 'flag', alt: "#{t 'nav.language'}")
                   %span.caret
                %ul.dropdown-menu
-                  %li= link_to 'PL', language_path(:pl)
-                  %li= link_to 'EN', language_path(:en)
-                  %li= link_to 'IT', language_path(:it)
+                  %li#pl= link_to image_tag('flags/blank.gif', class: 'flag flag-pl', alt: 'PL'), language_path(:pl)
+                  %li#gb= link_to image_tag('flags/blank.gif', class: 'flag flag-gb', alt: 'EN'), language_path(:gb)
+                  %li#it= link_to image_tag('flags/blank.gif', class: 'flag flag-it', alt: 'IT'), language_path(:it)
 

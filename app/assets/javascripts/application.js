@@ -20,10 +20,9 @@
 //= require_tree .
 
 var ready;
-var controller_name;
 
 ready = function() {
-   controller_name = window.location.pathname.split("/")[1];
+   var controller_name = window.location.pathname.split("/")[1];
    $("."+controller_name).addClass('active');
 };
 

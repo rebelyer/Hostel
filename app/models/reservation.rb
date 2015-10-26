@@ -34,7 +34,7 @@ class Reservation < ActiveRecord::Base
    attr_writer :current_step
 
    validates_presence_of :adults_number, :beginning, :end, if: :date_step?
-   validates_presence_of :first_name, :surname, :phone_number, :email_adress, if: :personal_step?
+   validates_presence_of :first_name, :surname, :phone_number, :email_address, if: :personal_step?
    validates_presence_of :room_id, if: :room_step?
    validates_with DateValidator, if: :date_step?
    validates_with PeopleNumValidator, if: :date_step?

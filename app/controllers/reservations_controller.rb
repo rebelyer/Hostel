@@ -32,7 +32,7 @@ class ReservationsController < ApplicationController
     if @reservation.new_record?
        render :new
     else
-      session[:reservation_params] = session[:reservation_step] = nil
+       session[:reservation_params] = session[:reservation_step] = nil
        redirect_to :root
     end
     
