@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.1'
 
 # Use Sorcery for authentication
 gem 'sorcery'
