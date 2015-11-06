@@ -13,7 +13,7 @@
       .col-md-3
          %p
             Price for you:
-            = @reservation.adults_number * room.price_per_adult + @reservation.children_number.to_i * room.price_per_child
+            = (@reservation.adults_number * room.price_per_adult + @reservation.children_number.to_i * room.price_per_child) * (@reservation.end - @reservation.beginning).to_i
       .col-md-2
          = f.label "room #{room.room_number}"
          = f.radio_button :room_id, "#{room.id}"
