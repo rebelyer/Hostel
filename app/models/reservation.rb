@@ -35,6 +35,7 @@ class Reservation < ActiveRecord::Base
 
    validates_presence_of :adults_number, :beginning, :end, if: :date_step?
    validates_presence_of :first_name, :surname, :phone_number, :email_address, if: :personal_step?
+   validates :phone_number, format: {with: /\+\d{12}/}
    validates_presence_of :room_id, if: :room_step?
    validates_with DateValidator, if: :date_step?
    validates_with PeopleNumValidator, if: :date_step?
